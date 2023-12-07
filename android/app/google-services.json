@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "955426049527",
+    "project_id": "advance-firebase-402e5",
+    "storage_bucket": "advance-firebase-402e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955426049527:android:61f7215482dcb19fee72f2",
+        "android_client_info": {
+          "package_name": "com.example.advance_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBup1S0G8lWk1EvriGNcFegCOt_THBMNUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
