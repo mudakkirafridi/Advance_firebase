@@ -1,4 +1,5 @@
 import 'package:advance_firebase/firebase_options.dart';
+import 'package:advance_firebase/screens/forgot_screen.dart';
 import 'package:advance_firebase/screens/splash_Screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
