@@ -10,7 +10,10 @@ class UiHelper {
         obscureText: toHide,
         decoration: InputDecoration(
             hintText: text,
-            suffixIcon: Icon(iconData),
+            suffixIcon: Icon(
+              iconData,
+              color: Colors.pink[200],
+            ),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
       ),
@@ -22,9 +25,14 @@ class UiHelper {
       height: 50,
       width: 300,
       child: ElevatedButton(
-          style: ElevatedButton.styleFrom(backgroundColor: Colors.pink[100]),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.pink[200],
+          ),
           onPressed: (voidCallback),
-          child: Text(text)),
+          child: Text(
+            text,
+            style: const TextStyle(color: Colors.white),
+          )),
     );
   }
 

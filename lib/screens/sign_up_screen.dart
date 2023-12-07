@@ -1,5 +1,7 @@
+import 'package:advance_firebase/screens/forgot_screen.dart';
 import 'package:advance_firebase/screens/home_screen.dart';
 import 'package:advance_firebase/screens/log_in_screen.dart';
+import 'package:advance_firebase/screens/phone_otp.dart';
 import 'package:advance_firebase/utilities.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -15,6 +17,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
 
   signUp(String email, String password) async {
     if (email == '' && password == '') {
@@ -48,13 +51,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
               emailController, 'Enter Email', Icons.mail, false),
           UiHelper.CustomTextField(
               passwordController, 'Enter Password', Icons.lock, true),
+          UiHelper.CustomTextField(
+              nameController, "Enter Your Name", Icons.person, false),
           const SizedBox(
             height: 30,
           ),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ForgotScreen()));
+              },
+              child: const Text(
+                'Forgot Password',
+                style: TextStyle(fontSize: 15),
+              )),
           UiHelper.CustomButton(() {
             signUp(emailController.text.toString(),
                 passwordController.text.toString());
           }, 'Sign UP'),
+          const SizedBox(
+            height: 5,
+          ),
+          UiHelper.CustomButton(() {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PhoneOtpScreen()));
+          }, 'Phone OTP'),
           const SizedBox(
             height: 10,
           ),

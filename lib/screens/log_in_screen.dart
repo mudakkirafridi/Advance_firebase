@@ -1,4 +1,7 @@
+import 'package:advance_firebase/screens/forgot_screen.dart';
 import 'package:advance_firebase/screens/home_screen.dart';
+import 'package:advance_firebase/screens/phone_otp.dart';
+import 'package:advance_firebase/screens/sign_up_screen.dart';
 import 'package:advance_firebase/utilities.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -50,18 +53,45 @@ class _LogInScreenState extends State<LogInScreen> {
           const SizedBox(
             height: 30,
           ),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ForgotScreen()));
+              },
+              child: const Text(
+                'Forgot Password',
+                style: TextStyle(fontSize: 15),
+              )),
           UiHelper.CustomButton(() {
             logIn(emailController.text.toString(),
                 passwordController.text.toString());
           }, 'Log In'),
+          const SizedBox(
+            height: 5,
+          ),
+          UiHelper.CustomButton(() {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PhoneOtpScreen()));
+          }, 'Phone OTP'),
           const SizedBox(
             height: 10,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Already Have An Account?'),
-              TextButton(onPressed: () {}, child: const Text('LogIn'))
+              const Text('Create New Account?'),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUpScreen()));
+                  },
+                  child: const Text('Sign Up'))
             ],
           )
         ],

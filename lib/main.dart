@@ -1,6 +1,4 @@
 import 'package:advance_firebase/firebase_options.dart';
-import 'package:advance_firebase/screens/home_screen.dart';
-import 'package:advance_firebase/screens/sign_up_screen.dart';
 import 'package:advance_firebase/screens/splash_Screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -19,8 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(backgroundColor: Colors.pink[200]),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
