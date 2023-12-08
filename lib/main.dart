@@ -1,5 +1,7 @@
 import 'package:advance_firebase/firebase_options.dart';
 import 'package:advance_firebase/screens/forgot_screen.dart';
+import 'package:advance_firebase/screens/home_screen.dart';
+import 'package:advance_firebase/screens/show_data.dart';
 import 'package:advance_firebase/screens/splash_Screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const ShowDataScreen(),
     );
   }
 }
