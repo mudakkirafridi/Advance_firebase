@@ -10,6 +10,7 @@ class ShowDataScreen extends StatefulWidget {
 }
 
 class _ShowDataScreenState extends State<ShowDataScreen> {
+  // final fireStore = FirebaseFirestore.instance.collection("User").snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,36 +18,28 @@ class _ShowDataScreenState extends State<ShowDataScreen> {
         title: const Text('Data From Firestore'),
       ),
       body: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection("User").snapshots(),
+          stream: FirebaseFirestore.instance.collection('User').snapshots(),
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.active) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: CircleAvatar(
-                          child: Text("${index + 1}"),
-                        ),
-                        title: Text(snapshot.data!.docs[index]["title"]),
-                        subtitle:
-                            Text(snapshot.data!.docs[index]["description"]),
-                      );
-                    });
-              } else if (snapshot.hasError) {
-                return Center(
-                  child: Text("${snapshot.hasError.toString()}"),
-                );
-              } else {
-                return const Center(
-                  child: Text('No Data Found'),
-                );
-              }
-            } else {
-              return const Center(
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
                 child: CircularProgressIndicator(),
               );
             }
+            if (snapshot.hasError) {
+              return Center(
+                child: Text("Some Error Occur"),
+              );
+            }
+            return Expanded(
+              child: ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(snapshot.data!.docs[index]['title']),
+                      subtitle: Text(snapshot.data!.docs[index].id),
+                    );
+                  }),
+            );
           }),
     );
   }
