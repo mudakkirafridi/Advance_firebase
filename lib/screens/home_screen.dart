@@ -32,8 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
           centerTitle: true,
         ),
-        body: Column(
-          children: [],
+        body: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Welcome To Home Screen",
+              style: TextStyle(fontSize: 18),
+            )
+          ],
         ));
   }
 }
